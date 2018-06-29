@@ -119,6 +119,8 @@ namespace Veritas.Controllers
         }
 
 
+        [ActionName("Login")]
+        [HttpPost]
         public async Task<IHttpActionResult> login(string email, string password)
         {
             var user = await (from u in db.Users where u.EMAIL == email && u.PASSWORD == password select u).FirstOrDefaultAsync();
