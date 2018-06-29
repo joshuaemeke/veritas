@@ -17,10 +17,12 @@ namespace Veritas.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [Route("api/Users/Login")]
+        //[Route("Login")]
         [HttpPost]
+        [ActionName("Login")]
         public async Task<IHttpActionResult> Login(string email, string password)
         {
+            //
             var user = await (from u in db.Users where u.EMAIL == email && u.PASSWORD == password select u).FirstOrDefaultAsync();
 
             if (user != null)
