@@ -19,20 +19,30 @@ namespace Veritas.Controllers
                 return View();
             }
 
-            return View("~/Views/Home/Login.cshtml");
+            return RedirectToAction("Login", "Home");
         }
 
-        public ActionResult Login(string email, string password)
+        public ActionResult Login()
         {
-            var user =  (from u in db.Users where u.EMAIL == email && u.PASSWORD == password select u).FirstOrDefault();
+            
+
+            //return RedirectToAction("Home", "Login");
+
+            return View();
+        }
+
+
+        public ActionResult auth(string email, string password)
+        {
+            var user = (from u in db.Users where u.EMAIL == email && u.PASSWORD == password select u).FirstOrDefault();
 
             if (user != null)
             {
                 System.Web.HttpContext.Current.Session.Add("username", user.USERNAME);
-                return View("~/Views/Home/Index.cshtml");
+                return RedirectToAction("Index", "Home");
             }
 
-            return View("~/Views/Home/Login.cshtml");
+            return RedirectToAction("Login", "Home");
         }
     }
 }

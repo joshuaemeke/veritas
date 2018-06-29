@@ -4,6 +4,10 @@
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 <div class="row">
+    @{ 
+        string username = (string)System.Web.HttpContext.Current.Session["username"];
+        @username
+    }
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
