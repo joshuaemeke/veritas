@@ -3,43 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Veritas.Models;
 
 namespace Veritas.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             string username = (string)System.Web.HttpContext.Current.Session["username"];
-            if(username != null)
+            if (username != null)
             {
                 return View();
             }
 
             return View("~/Views/Home/Login.cshtml");
-
         }
 
-        public ActionResult About()
+        public ActionResult Login(string email, string password)
         {
-            ViewBag.Message = "Your application description page.";
+            var user =  (from u in db.Users where u.EMAIL == email && u.PASSWORD == password select u).FirstOrDefault();
 
-            return View();
-        }
+            if (user != null)
+            {
+                System.Web.HttpContext.Current.Session.Add("username", user.USERNAME);
+                return View("~/Views/Home/Index.cshtml");
+            }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-
-        public ActionResult Login()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View("~/Views/Home/Login.cshtml");
         }
     }
 }
