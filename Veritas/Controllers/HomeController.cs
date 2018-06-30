@@ -84,8 +84,26 @@ namespace Veritas.Controllers
             return RedirectToAction("Login", "Home");
         }
 
+        public ActionResult Complaint()
+        {
+            ViewBag.Message = "Your Complaint";
+            return View();
+        }
+
+        public ActionResult ContactForm()
+        {
+            ViewBag.Message = "Your Contact Form";
+            return View();
+        }
+
+        public ActionResult ReferralForm()
+        {
+            ViewBag.Message = "Your Referral from";
+            return View();
+        }
 
     }
+
 
 
 

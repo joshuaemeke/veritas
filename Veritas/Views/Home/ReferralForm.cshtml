@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "ReferralForm";
+}
+
+<h2>ReferralForm</h2>
+
+<div class="container">
+    <div class="col-md-5">
+        <div class="panel-body">
+            <form name="myform">
+                <div class="form-group">
+                    <label for="surname"> Surname *</label>
+                    <input id="surname" name="surname" class="form-control" type="text" data-validation="required">
+                    <span id="error_name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="firstname">First Name *</label>
+                    <input id="firstname" name="firstname" class="form-control" type="text" data-validation="required">
+                    <span id="error_firstname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="othernames">Other Names *</label>
+                    <input id="othernames" name="othernames" class="form-control" type="text" data-validation="required">
+                    <span id="error_othernames" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="empname">Employer Name *</label>
+                    <input type="text" name="empname" id="empname" class="form-control" data-validation="required">
+                    <span id="error_empname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="pin">Pin</label>
+                    <input type="text" name="pin" id="pin" class="form-control" data-validation="required" />
+                    <span id="error_pin" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" name="email" class="form-control" data-validation="required" />
+                    <span id="error_email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Mobile Phone *</label>
+                    <input type="tel" id="phone" name="phone" class="form-control">
+                    <span id="error_phone" class="text-danger"></span>
+                </div>
+                <input type="radio" name="accepts" data-validation="required" />
+                I hereby confirm that the referred person has been spoken to and aware of my referral action.   <br />
+                <button id="submit" type="submit" value="submit" class="btn btn-primary center">Submit</button>
+
+            </form>
+        </div>
+    </div>
+</div>
