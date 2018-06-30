@@ -308,3 +308,141 @@ div.icon-bar {
 .profile-page {
     margin-top: 40px;
 }
+
+
+
+/*custom style from Joshua, for thead color-profile page*/
+
+@media(max-width:768px) {
+    h2#contribution-header {
+        text-align: left;
+    }
+}
+
+g text {
+    font-size: inherit;
+    padding: 0px;
+    width: 10px;
+    margin-left: 10px;
+}
+
+svg {
+    max-width: 500px;
+}
+
+div#dash-views-header h2 {
+    background: green;
+    color: white;
+    font-size: large;
+    padding: 15px;
+}
+
+h2#contribution-header {
+    text-align: right;
+}
+
+div#Acc-graph {
+    border: 1px solid;
+}
+
+div#stats-graph {
+    border: 1px solid black;
+}
+
+div#blog-header h2 {
+    background: darkblue;
+    padding: 15px;
+    color: white;
+    font-size: large;
+}
+
+div#fund-header h2 {
+    background: darkblue;
+    padding: 15px;
+    color: white;
+    font-size: large;
+}
+
+h2#fund-title {
+    text-align: right;
+}
+
+div#blog-content {
+    border: 1px solid;
+}
+
+#funds-nav .nav > li {
+    position: relative;
+    display: inline-block;
+}
+
+div#funds-nav {
+    border: 1px solid;
+}
+
+div#acc-off-title h2 {
+    background: green;
+    padding: 15px;
+    color: white;
+    font-size: large;
+}
+
+div#ref-title h2 {
+    background: green;
+    color: white;
+    padding: 15px;
+    font-size: large;
+}
+
+h2#ref-header {
+    text-align: right;
+}
+
+div#acc-content h2 {
+    font-size: large;
+    margin: 3%;
+}
+
+div#acc-content {
+    border: 1px solid;
+}
+
+div#ref-content {
+    border: 1px solid;
+}
+
+    div#ref-content h2 {
+        font-weight: bold;
+        font-size: -webkit-xxx-large;
+        display: inline-block;
+        color: darkblue;
+        margin: 2% 15%;
+    }
+
+span#ref-text {
+    color: green;
+    font-size: large;
+}
+
+span#point-text {
+    font-size: large;
+    color: green;
+}
+
+div#Rsa-fund h2 {
+    font-size: larger;
+}
+
+div#funds-content {
+    border: 1px solid;
+    padding: 7px;
+}
+
+button.gen {
+    padding: 10px;
+    border: 0px;
+    background-color: #66d43d;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: bold;
+}

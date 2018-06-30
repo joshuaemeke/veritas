@@ -8,11 +8,12 @@
         @Scripts.Render("~/bundles/modernizr")
         <link href="~/Content/style.css" rel="stylesheet" />
 </head>
-<body >
-    
+<body>
+
     @RenderBody()
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="~/Scripts/script.js"></script>
     @RenderSection("scripts", required: false)
 </body>

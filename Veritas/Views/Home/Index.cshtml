@@ -1,29 +1,104 @@
 ﻿@Html.Partial("header")
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+@using Veritas.Models;
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+@{
+    Html.RenderPartial("~/Views/Shared/_sidebar.cshtml");
+}
+<div class="container">
+
+    <div class="dash-header">
+        <h2>Retirement Savings Account Summary</h2>
+    </div>
+
+    <div id="dash-views-header">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 id="account-header">Account Summary</h2>
+
+                <div id="Acc-graph">
+                    <div id="donutchart" style=" height: 300px;"></div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h2 id="contribution-header">Contributions</h2>
+
+                <div id="stats-graph">
+                    <div id="curve_chart" style=" height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dash-view">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="blog-feeds">
+                    <div id="blog-header">
+                        <h2 id="blog-title">Blog Feed</h2>
+                    </div>
+                    <div id="blog-content">
+                        <img src="~/Image/slider-image.jpg" class="img-responsive" />
+                    </div>
+
+                </div>
+            </div>
+
+            <dic class="col-md-6">
+                <div id="fund-perfomances">
+                    <div id="fund-header">
+                        <h2 id="fund-title">Funds Performance</h2>
+                    </div>
+                    <div id="funds-nav" class="nav">
+                        <ul class="nav">
+                            <li><a href="" id="rsa-click">RSA Fund</a></li>
+                            <li><a href="">Retiree Fund</a></li>
+                            <li><a href="">Retiree Fund</a></li>
+                            <li><a href="">Retiree Fund</a></li>
+                        </ul>
+                    </div>
+                    <div id="funds-content">
+                        <div id="Rsa-fund" style="display:block">
+                            <h2>Contributions from inception</h2>
+                            <h2>Total Deductions(admin fee)</h2>
+                            <h2>Total Withdrawal from inception</h2>
+                            <h2>NET Contribution</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </dic>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="Acc-officer">
+                    <div id="acc-off-title">
+                        <h2 id="acc-title">Your Account Officer</h2>
+                    </div>
+                    <div id="acc-content">
+                        <h2>Name :ABDUL YAKUBU</h2>
+                        <h2>Phone :9099713790</h2>
+                        <h2>Email : Adbulyakubu@veritas.com</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div id="Referral">
+                    <div id="ref-title">
+                        <h2 id="ref-header">Your Referrals</h2>
+                    </div>
+                    <div id="ref-content">
+                        <h2 id="ref-count">0<span id="ref-text">Referrals</span></h2>
+                        <h2 id="point-count">0<span id="point-text">Points</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="row">
-    @{ 
-        string username = (string)System.Web.HttpContext.Current.Session["username"];
-        @username
-    }
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-    </div>
-</div>
+
