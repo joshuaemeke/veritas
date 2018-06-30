@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using Veritas.Models;
 using Veritas.Services;
@@ -13,6 +16,7 @@ namespace Veritas.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         VeritasServices services = new VeritasServices();
+        User user = new User();
 
         [CheckAuthorization]
         public ActionResult Index()
@@ -39,9 +43,34 @@ namespace Veritas.Controllers
         [CheckAuthorization]
         public ActionResult Profile()
         {
+           
+            string username = (string)System.Web.HttpContext.Current.Session["username"];
+            user = (from u in db.Users where u.USERNAME == username select u).FirstOrDefault();
+            TempData.Keep("profile");
+            TempData["profile"] = user;
             return View();
         }
 
+        public async Task<ActionResult> UpdateProfile([FromBody] User user)
+        {
+            var data = db.Users.Find(user.USERID);
+
+            //insert the username 
+            data.FIRSTNAME = user.FIRSTNAME;
+
+            db.Entry(data).State = EntityState.Modified;
+            try
+            {
+                await db.SaveChangesAsync();
+                return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                string msg = ex.Message;
+                return Json(new { success = false }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
 
         public async Task<ActionResult> auth(string email, string password)
         {

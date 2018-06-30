@@ -33,5 +33,39 @@ namespace Veritas.Controllers
 
             return BadRequest();
         }
+
+
+        //public IHttpActionResult PutUser(decimal id, User user)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    if (id != user.USERID)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    db.Entry(user).State = EntityState.Modified;
+
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!UserExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
     }
 }
