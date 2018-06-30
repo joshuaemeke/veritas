@@ -1,50 +1,69 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-
-namespace Veritas.Models
+namespace Veritas
 {
-    public class User
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    public partial class portal_s_websure
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal USERID { get; set; }
 
+        [StringLength(40)]
         public string USERNAME { get; set; }
 
+        [StringLength(20)]
         public string PASSWORD { get; set; }
 
+        [StringLength(40)]
         public string USERPIN { get; set; }
 
+        [StringLength(20)]
         public string ROLEID { get; set; }
 
+        [StringLength(10)]
         public string TITLE { get; set; }
 
+        [StringLength(25)]
         public string FIRSTNAME { get; set; }
 
+        [StringLength(25)]
         public string LASTNAME { get; set; }
 
+        [StringLength(40)]
         public string COMPANY { get; set; }
 
+        [StringLength(40)]
         public string STREET { get; set; }
 
+        [StringLength(25)]
         public string CITY { get; set; }
 
+        [StringLength(25)]
         public string STATE { get; set; }
 
+        [StringLength(10)]
         public string ZIP { get; set; }
 
+        [StringLength(40)]
         public string COUNTRY { get; set; }
 
+        [StringLength(30)]
         public string PHONE { get; set; }
 
+        [StringLength(30)]
         public string FAX { get; set; }
 
+        [StringLength(80)]
         public string EMAIL { get; set; }
 
+        [StringLength(40)]
         public string HINTQUESTION { get; set; }
 
+        [StringLength(40)]
         public string HINTANSWER { get; set; }
 
         [StringLength(1)]
@@ -95,6 +114,7 @@ namespace Veritas.Models
 
         public byte? FLAGUPLOADED { get; set; }
 
+        [StringLength(20)]
         public string opassword { get; set; }
     }
 }

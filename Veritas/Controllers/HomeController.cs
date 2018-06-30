@@ -16,7 +16,7 @@ namespace Veritas.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         VeritasServices services = new VeritasServices();
-        User user = new User();
+        portal_s_websure user = new portal_s_websure();
 
         [CheckAuthorization]
         public ActionResult Index()
@@ -45,15 +45,15 @@ namespace Veritas.Controllers
         {
            
             string username = (string)System.Web.HttpContext.Current.Session["username"];
-            user = (from u in db.Users where u.USERNAME == username select u).FirstOrDefault();
+            user = (from u in db.portal_s_websure where u.USERNAME == username select u).FirstOrDefault();
             TempData.Keep("profile");
             TempData["profile"] = user;
             return View();
         }
 
-        public async Task<ActionResult> UpdateProfile([FromBody] User user)
+        public async Task<ActionResult> UpdateProfile([FromBody] portal_s_websure user)
         {
-            var data = db.Users.Find(user.USERID);
+            var data = db.portal_s_websure.Find(user.USERID);
 
             //insert the username 
             data.FIRSTNAME = user.FIRSTNAME;
@@ -74,7 +74,7 @@ namespace Veritas.Controllers
 
         public async Task<ActionResult> auth(string email, string password)
         {
-            var user = (from u in db.Users where u.EMAIL == email && u.PASSWORD == password select u).FirstOrDefault();
+            var user = (from u in db.portal_s_websure where u.EMAIL == email && u.PASSWORD == password select u).FirstOrDefault();
 
             if (user != null)
             {
@@ -83,5 +83,11 @@ namespace Veritas.Controllers
             }
             return RedirectToAction("Login", "Home");
         }
+
+
     }
+
+
+
+
 }

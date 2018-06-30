@@ -23,7 +23,7 @@ namespace Veritas.Controllers
         public async Task<IHttpActionResult> Login(string email, string password)
         {
             //
-            var user = await (from u in db.Users where u.EMAIL == email && u.PASSWORD == password select u).FirstOrDefaultAsync();
+            var user = await (from u in db.portal_s_websure where u.EMAIL == email && u.PASSWORD == password select u).FirstOrDefaultAsync();
 
             if (user != null)
             {
