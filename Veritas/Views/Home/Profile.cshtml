@@ -9,10 +9,10 @@
 }
 
 @{
-    var profile = new User();
+    var profile = new portal_s_websure();
     if (TempData["profile"] != null)
     {
-        profile = (User)TempData["profile"];
+        profile = (portal_s_websure)TempData["profile"];
     }
 
     string fullname = profile.FIRSTNAME + " " + profile.LASTNAME;

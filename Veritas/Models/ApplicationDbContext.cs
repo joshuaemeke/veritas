@@ -20,8 +20,6 @@ namespace Veritas.Models
         public virtual DbSet<portal_s_websure> portal_s_websure { get; set; }
         public virtual DbSet<PRICE_HISTORY> PRICE_HISTORY { get; set; }
 
-
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<EXIT_PROCESS_PAYMENT>()
@@ -238,8 +236,6 @@ namespace Veritas.Models
                 .Property(e => e.ID)
                 .HasPrecision(10, 0);
         }
-
-   
 
     }
 }
