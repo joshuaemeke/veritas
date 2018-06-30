@@ -343,10 +343,12 @@ h2#contribution-header {
 
 div#Acc-graph {
     border: 1px solid;
+    background: white;
 }
 
 div#stats-graph {
     border: 1px solid black;
+        background: white;
 }
 
 div#blog-header h2 {

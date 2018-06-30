@@ -1,0 +1,71 @@
+﻿
+<header class="navbar">
+    <div class="container-fluid expanded-panel">
+        <div class="row">
+            <div id="logo" class="col-xs-12 col-sm-2">
+                <a href="~/Views/"><img src="~/images/imgpsh_fullsize (1).png" alt="logo"></a>
+            </div>
+            <div id="top-panel" class="col-xs-12 col-sm-10">
+                <div class="row">
+                    <div class="col-xs-8 col-sm-4">
+                        <a href="#" class="show-sidebar">
+                            <i class="fa fa-bars"></i>
+                        </a>
+
+                    </div>
+                    <div class="col-xs-4 col-sm-8 top-panel-right">
+                        <ul class="nav navbar-nav pull-right panel-menu">
+                            <li class="hidden-xs">
+                                
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle account" data-toggle="dropdown">
+                                    <div class="avatar">
+                                        <img src="~/images/avatar.jpg" class="img-rounded" alt="avatar" />
+                                    </div>
+
+                                    <i class="fa fa-angle-down pull-right"></i>
+                                    <div class="user-mini pull-right">
+                                        <div class="admin-name">Hello, @User.Identity.Name</div>
+                                    </div>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-user"></i>
+                                            <span class="change-picture">@Html.ActionLink("Edit Picture", "EditPicture", "Customer", null, null)</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-user"></i>
+                                            <span class="change-password">Change Password</span>
+                                        </a>
+                                    </li>
+                                    <li class="logoutmenu">
+                                        <a href="javascript:document.getElementById('logoutForm').submit()">
+                                            @if (Request.IsAuthenticated)
+                                            {
+                                                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                                {
+                                                    @Html.AntiForgeryToken()
+
+
+                                                    <i class="fa fa-power-off"></i>
+                                                    <span>Logout</span>
+
+
+                                                }
+                                            }
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

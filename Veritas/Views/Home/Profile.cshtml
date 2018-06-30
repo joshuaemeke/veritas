@@ -4,9 +4,6 @@
     ViewBag.Title = "UserProfile";
 }
 
-@{
-    Html.RenderPartial("~/Views/Shared/_sidebar.cshtml");
-}
 
 @{
     var profile = new portal_s_websure();
@@ -18,9 +15,7 @@
     string fullname = profile.FIRSTNAME + " " + profile.LASTNAME;
 }
 <div class="profile-page" id="main">
-    @{
-        Html.RenderPartial("header");
-    }
+   
     <div class="col_ col-md-3">
         
                 <div align="center">
