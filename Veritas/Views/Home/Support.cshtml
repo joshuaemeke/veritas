@@ -1,0 +1,45 @@
+﻿@using Veritas.Helpers;
+@using Veritas.Models;
+@using System.Web.Mvc;
+@{
+    ViewBag.Title = "Support";
+}
+@model Veritas.Models.SupportCategory
+<h2>Support</h2>
+<div class="">
+    @using (Html.BeginForm("Support", "Home", FormMethod.Post, new { @class = "form-horizontal", id = "support" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <h4><span class="label label-default">Support Category</span></h4>
+                @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
+            </div>
+        </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4><span class="label label-default">Summary</span></h4>
+                    @Html.TextBoxFor(m => m.Summary, new { @class = "form-control", placeholder = "Summary" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4><span class="label label-default">Explanation</span></h4>
+                    @Html.TextAreaFor(m => m.Explanation, new { @class = "form-control", placeholder = "Explanation", rows = "4" })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 pull-right">
+                    <input type="submit" value="Submit" class="btn-primary btn-block" />
+                </div>
+            </div>
+    }
+</div>
+
+

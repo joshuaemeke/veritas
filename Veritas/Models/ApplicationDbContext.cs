@@ -14,11 +14,13 @@ namespace Veritas.Models
             : base("name=Default")
         {
         }
-
-
+        public virtual DbSet<FUND_PERFORMANCE> FUND_PERFORMANCE { get; set; }
+        public virtual DbSet<FUND_PERFORMANCE_REPORT> FUND_PERFORMANCE_REPORT { get; set; }
+        public virtual DbSet<SupportCategory> SupportCategories { get; set; }
         public virtual DbSet<EXIT_PROCESS_PAYMENT> EXIT_PROCESS_PAYMENT { get; set; }
         public virtual DbSet<portal_s_websure> portal_s_websure { get; set; }
         public virtual DbSet<PRICE_HISTORY> PRICE_HISTORY { get; set; }
+        public virtual DbSet<SupportLog> SupportLogs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -235,6 +237,45 @@ namespace Veritas.Models
             modelBuilder.Entity<PRICE_HISTORY>()
                 .Property(e => e.ID)
                 .HasPrecision(10, 0);
+            modelBuilder.Entity<SupportCategory>()
+                .Property(e => e.Id);
+            modelBuilder.Entity<SupportCategory>()
+                .Property(e => e.Value);
+            modelBuilder.Entity<SupportCategory>()
+                .Property(e => e.Category);
+            modelBuilder.Entity<SupportCategory>()
+                .Property(e => e.Pin);
+            modelBuilder.Entity<SupportCategory>()
+                .Property(e => e.Summary);
+            modelBuilder.Entity<SupportCategory>()
+                .Property(e => e.Explanation);
+            modelBuilder.Entity<FUND_PERFORMANCE>()
+                .Property(e => e.TRANSID)
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<FUND_PERFORMANCE>()
+                .Property(e => e.DESCRIPTION)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<FUND_PERFORMANCE_REPORT>()
+                .Property(e => e.SCHEME_ID)
+                .HasPrecision(10, 0);
+
+            modelBuilder.Entity<FUND_PERFORMANCE_REPORT>()
+                .Property(e => e.DESCRIPTION)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<FUND_PERFORMANCE_REPORT>()
+                .Property(e => e.FUND_PERCENTAGE)
+                .HasPrecision(6, 2);
+
+            modelBuilder.Entity<FUND_PERFORMANCE_REPORT>()
+                .Property(e => e.RETURN_ON_INSTRUMENT)
+                .HasPrecision(6, 2);
+
+            modelBuilder.Entity<FUND_PERFORMANCE_REPORT>()
+                .Property(e => e.BENCHMARK)
+                .HasPrecision(6, 2);
         }
 
     }

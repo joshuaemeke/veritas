@@ -196,6 +196,8 @@
     <Compile Include="Models\CheckAuthorization.cs" />
     <Compile Include="Models\portal_s_websure.cs" />
     <Compile Include="Models\PRICE_HISTORY.cs" />
+    <Compile Include="Models\SupportCategory.cs" />
+    <Compile Include="Models\SupportLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\VeritasServices.cs" />
   </ItemGroup>
@@ -271,6 +273,8 @@
     <Content Include="Views\Home\ContactForm.cshtml" />
     <Content Include="Views\Home\ReferralForm.cshtml" />
     <Content Include="Views\Shared\_Topnav.cshtml" />
+    <Content Include="Views\Home\Support.cshtml" />
+    <Content Include="Views\Home\Fundsperformance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

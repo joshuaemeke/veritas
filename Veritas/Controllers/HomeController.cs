@@ -102,6 +102,17 @@ namespace Veritas.Controllers
             return View();
         }
 
+        public ActionResult Support()
+        {
+            ViewBag.Message = "Your Support page";
+            return View();
+        }
+
+        public ActionResult Fundsperformance()
+        {
+            ViewBag.Message = "Your funds performance";
+            return View();
+        }
     }
 
 
