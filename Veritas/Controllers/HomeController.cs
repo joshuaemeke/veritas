@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
+using System.Web.Security;
 using Veritas.Models;
 using Veritas.Services;
 
@@ -28,6 +29,47 @@ namespace Veritas.Controllers
             //}
 
             //return RedirectToAction("Login", "Home");
+
+            //GET THE SESSION
+            string username = (string)System.Web.HttpContext.Current.Session["username"];
+
+            //GET THE CURRENT LOGGED IN USER FROM THE DATABASE
+            var LoggedInUser = (from u in db.portal_s_websure where u.USERNAME == username select u).FirstOrDefault();
+
+            //NOW LETS QUERY THE OTHER TABLE
+            //GET ALL THE PAYMENTS AND COUNT THEM..IT IS THE SAME AS THIS
+            //SELECT COUNT(PIN) FROM EXIT_PROCESS_PAYMENT WHERE PIN=?
+            var processPayementSum = (from u in db.EXIT_PROCESS_PAYMENT where u.PIN == LoggedInUser.USERPIN select u).Count();
+
+            //ACCORDING TO TAYO THIS IS THE NEXT STEP
+            //if record exists then the customer is a Retiree and the scheme_id = 31
+
+            int scheme_id = 0;
+            if(processPayementSum > 0) //THIS MEANS IT EXIST SO SCHEME ID = 31
+            {
+                scheme_id = 31; //SET SCHEME ID TO 31
+            }
+            else
+            {
+                //else the customer is an Active Customer/RSA and the scheme_id = 1
+                scheme_id = 1;
+
+            }
+
+            //NOW THAT YOU HAVE THE SCHEME ID, WHAT NEXT?
+            //NOW LETS INFO FROM THE TABLE
+
+
+            var employeContribu = (from x in db.CONTRIBUTIONs select x).FirstOrDefault();
+
+            //MIND YOU, THIS WILL BE THE SAME FOR EVERY LOGGED IN USER
+            //SINCE YOU HAVE REFUSED TO UNDERSTAND THE BUSINESS REQUIREMENTS
+            //AND YOU MUST NOT DELETE THE COMMENTS IM PLACING HERE
+
+
+            //NOW LETS SAVE IT
+            TempData.Keep("contrib");
+            TempData["contrib"] = employeContribu; //WE ARE SAVING THE RESULT HERE
             return View();
         }
 
@@ -105,12 +147,25 @@ namespace Veritas.Controllers
         public ActionResult Support()
         {
             ViewBag.Message = "Your Support page";
+            
             return View();
         }
 
         public ActionResult Fundsperformance()
         {
             ViewBag.Message = "Your funds performance";
+            return View();
+        }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon(); // it will clear the session at the end of request
+            return RedirectToAction("login", "home");
+        }
+
+        public ActionResult Benefits()
+        {
+            ViewBag.Message = "Your Benefits Page";
             return View();
         }
     }

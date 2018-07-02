@@ -187,6 +187,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Models\CONTRIBUTION.cs" />
     <Compile Include="Models\EXIT_PROCESS_PAYMENT.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -194,6 +195,8 @@
     <Compile Include="Helpers\RandomUrl.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\CheckAuthorization.cs" />
+    <Compile Include="Models\FUND_PERFORMANCE.cs" />
+    <Compile Include="Models\FUND_PERFORMANCE_REPORT.cs" />
     <Compile Include="Models\portal_s_websure.cs" />
     <Compile Include="Models\PRICE_HISTORY.cs" />
     <Compile Include="Models\SupportCategory.cs" />
@@ -211,6 +214,8 @@
     <Content Include="Global.asax" />
     <Content Include="Image\login-background.png" />
     <Content Include="Image\logo.png" />
+    <Content Include="Image\moda-header-image.jpg" />
+    <Content Include="Image\modal-sign.jpg" />
     <Content Include="Image\slider-image.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -275,6 +280,8 @@
     <Content Include="Views\Shared\_Topnav.cshtml" />
     <Content Include="Views\Home\Support.cshtml" />
     <Content Include="Views\Home\Fundsperformance.cshtml" />
+    <Content Include="Views\Home\LogOut.cshtml" />
+    <Content Include="Views\Home\Benefits.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

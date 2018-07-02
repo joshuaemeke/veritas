@@ -3,10 +3,100 @@
 @{
     ViewBag.Title = "Dashboard";
 }
+@model Veritas.Models.CONTRIBUTION
+
+@{ 
+    var contributions = new CONTRIBUTION();
+    if (TempData["contrib"] != null)
+    {
+        contributions = (CONTRIBUTION)TempData["contrib"];
+    }
+}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        jquery("#welcome_modal").show();
+    });
+
+        // Load Charts and the corechart package.
+        google.charts.load('current', { 'packages': ['corechart'] });
+
+        // Draw the pie chart when Charts is loaded.
+        google.charts.setOnLoadCallback(drawDonutChart);
+
+        // Draw the Line chartwhen Charts is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Callback that draws the pie chart for
+        function drawDonutChart() {
+
+            // Create the data table 
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Title');
+            data.addColumn('number', 'Distribution');
+            data.addRows([
+                ['Employee',@contributions.EMPLOYEE_CONTRIBUTION],
+                ['Employer',@contributions.EMPLOYER_CONTRIBUTION],
+                ['Fees', @contributions.TOTAL_FEE],
+                ['VAT', @contributions.VAT_FEE],
+                ['Net Cont.', @contributions.NET],
+                ['Withdrawal', @contributions.WITHDRAWAL],
+                ['Price', @contributions.PRICE],
+                ['Units', @contributions.TOTAL_UNITS]
+            ]);
+
+            // Set options for  pie chart.
+            var options = {
+                title: 'Account Distribution',
+                pieHole: 0.4,
+                width: 500,
+                height: 300
+            };
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+        }
+
+        // Callback that draws line .
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Month', 'Employee Contribution', 'Employer Contribution'],
+                ['Jan', 1000, 400],
+                ['Feb', 1170, 460],
+                ['Mar', 660, 1120],
+                ['Apr', 1030, 540]
+            ]);
+
+            var options = {
+                title: 'Statistics',
+                curveType: 'function',
+                width: 480,
+                legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+
+</script>
+
+<style>
+     #welcome_modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    overflow: auto;
+    overflow-y: scroll;
+}
+</style>
 <div class="container-fluid">
     
         <div class="row">
-            
             <div id="dash-views-header">
 
                 <div class="dash-header">
@@ -85,6 +175,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
+           </div>
 
 

@@ -13,7 +13,7 @@ namespace Veritas.Models
             this.SupportLogs = new HashSet<SupportLog>();
         }
         public virtual ICollection<SupportLog> SupportLogs { get; set; }
-        public int Id { get; set; }
+        public int  Id { get; set; }
 
         [StringLength(50)]
         public string Value { get; set; }

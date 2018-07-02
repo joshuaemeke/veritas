@@ -16,3 +16,8 @@ textarea {
     max-width: 280px;
 }
 
+.modal-header img {
+    width: 400px;
+    padding: 10px;
+    margin-left: 61px;
+}

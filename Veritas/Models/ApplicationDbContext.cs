@@ -21,6 +21,7 @@ namespace Veritas.Models
         public virtual DbSet<portal_s_websure> portal_s_websure { get; set; }
         public virtual DbSet<PRICE_HISTORY> PRICE_HISTORY { get; set; }
         public virtual DbSet<SupportLog> SupportLogs { get; set; }
+        public virtual DbSet<CONTRIBUTION> CONTRIBUTIONs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -276,6 +277,150 @@ namespace Veritas.Models
             modelBuilder.Entity<FUND_PERFORMANCE_REPORT>()
                 .Property(e => e.BENCHMARK)
                 .HasPrecision(6, 2);
+            modelBuilder.Entity<CONTRIBUTION>()
+               .Property(e => e.BATCH_ID)
+               .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.PIN)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.POSTED)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.EMPLOYEE_VARIANCE)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.EMPLOYER_VARIANCE)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.OTHER_VARIANCE)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.OTHER_FEE)
+                .HasPrecision(10, 2);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.TOTAL_UNITS)
+                .HasPrecision(18, 4);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.SCHEME_ID)
+                .HasPrecision(15, 0);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.PAYMENT_ID)
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.PRICE)
+                .HasPrecision(18, 4);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.TRANS_UNITS_R)
+                .HasPrecision(18, 4);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.TRANS_UNITS_V)
+                .HasPrecision(18, 4);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.TRANS_TYPE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.EMPLOYER_CODE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.RETIREE_DEPOSITE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.FUND_ID)
+                .HasPrecision(10, 0);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.BRANCH_CODE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.TRANS_ID)
+                .HasPrecision(15, 0);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.PFC_CODE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.PFA_CODE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.DESCRIPTION)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.TRANSID)
+                .HasPrecision(10, 0);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.OLDPFACODE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.RECORDID)
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.SENT)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.TRANS_UNITS)
+                .HasPrecision(10, 4);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.OLD_PFACODE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.CLIENT_STATUS)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.POSTED_BY)
+                .HasPrecision(10, 0);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.USERID)
+                .HasPrecision(10, 0);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.mnth1)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.yearr1)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.agent_code)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CONTRIBUTION>()
+                .Property(e => e.FEE_ID)
+                .HasPrecision(3, 0);
         }
 
     }
